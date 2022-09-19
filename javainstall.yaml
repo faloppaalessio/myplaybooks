@@ -1,0 +1,14 @@
+---
+- name: Java Installer
+  hosts: jmeternodes
+  become: true
+
+  vars:
+    java_yum_package: "java-1.8.0-openjdk"
+
+  tasks:
+  - name: Install Java Package (RHEL)
+    yum:
+      name: "{{ java_yum_package }}"
+      state: present
+      update_cache: yes
